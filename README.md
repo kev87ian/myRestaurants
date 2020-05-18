@@ -1,1 +1,1 @@
-# myRestuarants
+# myRestaurants
