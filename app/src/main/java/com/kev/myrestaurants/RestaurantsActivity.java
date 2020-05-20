@@ -1,25 +1,3 @@
-//package com.kev.myrestaurants;
-//
-//import androidx.appcompat.app.AppCompatActivity;
-//
-//import android.content.Intent;
-//import android.os.Bundle;
-//import android.widget.TextView;
-//
-//public class RestaurantsActivity extends AppCompatActivity {
-//    private TextView mLocationTextView;
-//
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_restaurants);
-//        Intent intent = getIntent();
-//        String location = intent.getStringExtra("location");
-//        mLocationTextView.setText("Here are all the restaurants near: " + location );
-//    }
-//}
-
 package com.kev.myrestaurants;
 
 import android.content.Intent;
@@ -30,22 +8,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView;
 import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+
 public class RestaurantsActivity extends AppCompatActivity {
-    private TextView mLocationTextView;
-    private ListView mListView;
+    @BindView(R.id.locationTextView) TextView mLocationTextView;
+    @BindView(R.id.listView) ListView mListView;
     private String[] restaurants = new String[] {"Mi Mero Mole", "Mother's Bistro",
             "Life of Pie", "Screen Door", "Luc Lac", "Sweet Basil",
             "Slappy Cakes", "Equinox", "Miss Delta's", "Andina",
             "Lardo", "Portland City Grill", "Fat Head's Brewery",
-            "Chipotle", "Subway"};
-
+            "Chipotle", "Subway", "KFC", "Kibdandaski", "Kempinski",
+            "Villarosa", "Sarova", "Stanley",};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurants);
+        ButterKnife.bind(this);
 
         mListView = (ListView) findViewById(R.id.listView);
         mLocationTextView = (TextView) findViewById(R.id.locationTextView);
